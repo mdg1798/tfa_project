@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Incidences
+from .models import Squirrel
 
 class IncidencesAdmin(admin.ModelAdmin):
-    list_display=('name','location')
+    list_display=('latitude','longitude')
 
-admin.site.register(Incidences, IncidencesAdmin)
+admin.site.register(Squirrel, IncidencesAdmin)
 
 # Register your models here.

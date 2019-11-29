@@ -16,8 +16,7 @@ class Command(BaseCommand):
         def insert_upazila_report_to_db(self, data):
             try:
                 self.model_name.objects.create(
-                upazila=data["X"],
-                rank=data["Y"] 
+                lat/lon=data['Lat/Long']
                 )
             except Exception as e:
                 raise CommandError("Error in inserting {}: {}".format(self.model_name, str(e)))
@@ -40,11 +39,9 @@ class Command(BaseCommand):
                              for row in csv_reader:
                                 if row != "":
                                      words = [word.strip() for word in row]
-                                     upazila_name = words[0]
-                                     rank = words[1]
+                                     lat/lon=word[0]
                                      data= {}
-                                     data["upazila"] = upazila_name
-                                     data["rank"] = rank
+                                     data["Lat/Long"] = lat/lon
                                      self.insert_upazila_report_to_db(data)
                                      self.stdout.write(
                                             self.style.SUCCESS('{}_{}: {}'.format(upazila_name,rank))
