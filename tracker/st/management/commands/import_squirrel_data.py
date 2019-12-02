@@ -1,50 +1,53 @@
+from django.core.management.base import BaseCommand
 import csv
-import os
-from django.apps import apps
-from django.core.management.base import BaseCommand, CommandError
-from st.models import Question
+from st.models import Squirrel
+
 class Command(BaseCommand):
-        help = "Insert Upazila office reports from a CSV file. " \
-                           "CSV file name(s) should be passed. " \
-                                      "If no optional argument (e.g.: --acland) is passed, " \
-                                                 "this command will insert UNO office reports."
+    def import_squirrel_data(self,path):
+        with open(path,'r') as data_file:  
+            data = csv.reader(data_file)
+            for data_object in data:                
+                Chasing = data_object[16]
+                Climbing = data_object[17]
+                Eating = data_object[18]
+                Foraging = data_object[19]
+                Other_Activities = data_object[20]
+                Kuks = data_object[21]
+                Quaas = data_object[22] 
+                Moans = data_object[23]
+                Tail_flags = data_object[24]
+                Tail_twitches = data_object[25]
+                Approaches = data_object[26]
+                Indifferent = data_object[27]
+                Runs_from = data_object[28]
+                try:
+                    squirrel, created = Squirrel.objects.get_or_create(
+                        Running = Running,
+                        Chasing = Chasing,
+                        Climbing = Climbing,
+                        Eating = Eating,
+                        Foraging = Foraging,
+                        Other_Activities = Other_Activities,
+                        Kuks = Kuks,
+                        Quaas = Quaas,
+                        Moans = Moans,
+                        Tail_flags = Tail_flags,
+                        Tail_twitches = Tail_twitches,
+                        Approaches = Approaches,
+                        Indifferent = Indifferent,
+                        Runs_from = Runs_from,
+                        )
+                    if created:
+                        squirrel.save()
+                            
+                except Exception as ex:
+                    pass
 
-        def __init__(self, *args, **kwargs):
-                super().__init__(*args, **kwargs)
-                self.model_name = Question
+    def add_arguments(self, parser):
+        parser.add_argument('path')
 
-        def insert_upazila_report_to_db(self, data):
-            try:
-                self.model_name.objects.create(
-                lat/lon=data['Lat/Long']
-                )
-            except Exception as e:
-                raise CommandError("Error in inserting {}: {}".format(self.model_name, str(e)))
-        def get_current_app_path(self):
-                return apps.get_app_config('st').path
-
-        def get_csv_file(self, filename):
-                 app_path = self.get_current_app_path()
-                 file_path = os.path.join(app_path, "management", "commands", filename)
-                 return file_path
-        def add_arguments(self, parser):
-                    parser.add_argument('filenames',nargs='+',type=str,help="Inserts Upazila Office reports from CSV file")
-        def handle(self, *args, **options):
-            for filename in options['filenames']:
-                    self.stdout.write(self.style.SUCCESS('Reading:{}'.format(filename)))
-                    file_path = self.get_csv_file(filename)
-                    try:
-                        with open(file_path) as csv_file:
-                             csv_reader = csv.reader(csv_file, delimiter=',')
-                             for row in csv_reader:
-                                if row != "":
-                                     words = [word.strip() for word in row]
-                                     lat/lon=word[0]
-                                     data= {}
-                                     data["Lat/Long"] = lat/lon
-                                     self.insert_upazila_report_to_db(data)
-                                     self.stdout.write(
-                                            self.style.SUCCESS('{}_{}: {}'.format(upazila_name,rank))
-                                                )
-                    except FileNotFoundError:
-                             raise CommandError("File {} does not exist".format( file_path))
+    def handle(self, *args, **kwargs):
+        """
+        Call the function to import data
+        """
+        path = kwargs['path']
