@@ -5,28 +5,28 @@ from django.utils.translation import gettext as _
 class Squirrel(models.Model):
     
     Longitude = models.FloatField(
-    help_text=_('Longitude'),
+    help_text=_('Enter the Longitude'),
     )
 
     Latitude = models.FloatField(
-    help_text=_('Latitude'),
+    help_text=_('Enter the Latitude'),
     )   
     
     Unique_Squirrel_ID = models.CharField(
-    max_length=100, 
-    help_text=_('ID of squirrel'), 
+    max_length=60, 
+    help_text=_('Unique ID of squirrel'), 
     )
     
     PM='PM'
     AM='AM'
 
-    Shift_CHOICES=( (PM,'PM'),
+    Shift_Choices=( (PM,'PM'),
     (AM,'AM'),
      )
 
     Shift = models.CharField(
     max_length=2,
-    choices=Shift_CHOICES,
+    choices=Shift_Choices,
     )
 
 
@@ -38,14 +38,14 @@ class Squirrel(models.Model):
     Juvenile='Juvenile'
     Other='Other'
 
-    Age_CHOICES=( (Adult,'Adult'), 
+    Age_Choices=( (Adult,'Adult'), 
     (Juvenile,'Juvenile'),
     (Other,'Other')
      )  
 
     Age = models.CharField( 
     max_length=20, 
-    choices=Age_CHOICES,  
+    choices=Age_Choices,  
     default=Other,
     help_text=_('Age of Squirrel'),
     )
@@ -55,7 +55,7 @@ class Squirrel(models.Model):
     Black='Black'
     Other='Other'
 
-    Primary_Fur_Color_CHOICES=( (Gray,'Gray'),
+    Primary_Fur_Color_Choices=( (Gray,'Gray'),
     (Cinnamon,'Cinnamon'),
     (Black,'Black'),
     (Other,'Other')
@@ -63,7 +63,7 @@ class Squirrel(models.Model):
 
     Primary_Fur_Color = models.CharField(
     max_length=100,
-    choices=Primary_Fur_Color_CHOICES,
+    choices=Primary_Fur_Color_Choices,
     default=Other,
     )
 
@@ -71,110 +71,39 @@ class Squirrel(models.Model):
     Above_Ground='Above_Ground'
     Other='Other'
 
-    Location_CHOICES=( (Ground_Plane,'Ground_Plane'), 
+    Location_Choices=( (Ground_Plane,'Ground_Plane'), 
     (Above_Ground,'Above_Ground'),
     (Other,'Other')
      )  
 
     Location = models.CharField( 
     max_length=100, 
-    choices=Location_CHOICES,  
+    choices=Location_Choices,  
     default=Other,
-    help_text=_('locations of squirrel'),
+    help_text=_('Locations of the squirrel'),
     )
 
     Specific_Location= models.CharField(
     max_length=100,
     help_text=_('Specific Locations of Squirrel'),
     )
-    
-    TRUE = 'True'
-    FALSE = 'False'
 
-    CHOICES = (
-            (TRUE,'True'),
-            (FALSE,'False'),
-            )
-
-    Running = models.CharField(
-    max_length=10,
-    choices=CHOICES,
-    help_text=_('Running or not'),
-    )
-
-    Chasing = models.CharField(
-    max_length=10,
-    choices=CHOICES,
-    help_text=_('Chasing or not'),
-    )
-
-    Climbing = models.CharField(
-            max_length=5,
-            choices=CHOICES,
-            help_text=_('Climb or not'),
-            )
-
-    Eating = models.CharField(
-            max_length=5,
-            choices=CHOICES,
-            help_text=_('Eat or not'),
-            )
-
-    Foraging = models.CharField(
-            max_length=5,
-            choices=CHOICES,
-            help_text=_('Forage or not'),
-            )
+    Running = models.BooleanField(default=False)
+    Chasing = models.BooleanField(default=False)
+    Climbing = models.BooleanField(default=False)
+    Eating = models.BooleanField(default=False)
+    Foraging = models.BooleanField(default=False)
 
     Other_Activities = models.CharField(
             max_length=100,
             help_text=_('Other activities'),
             )
 
-    Kuks = models.CharField(
-            max_length=5,
-            choices=CHOICES,
-            help_text=_('Kuks or not'),
-            )
-
-    Quaas = models.CharField(
-            max_length=5,
-            choices=CHOICES,
-            help_text=_('Quaas or not'),
-            )
-
-    Moans = models.CharField(
-            max_length=5,
-            choices=CHOICES,
-            help_text=_('Moans or not'),
-            )
-
-    Tail_flags = models.CharField(
-            max_length=5,
-            choices=CHOICES,
-            help_text=_('Tail flags or not'),
-            )
-
-    Tail_twitches = models.CharField(
-            max_length=5,
-            choices=CHOICES,
-            help_text=_('Tail twitches or not'),
-            )
-
-    Approaches = models.CharField(
-            max_length=5,
-            choices=CHOICES,
-            help_text=_('Approaches or not'),
-            )
-
-    Indifferent= models.CharField(
-            max_length=5,
-            choices=CHOICES,
-            help_text=_('Indifferent or not'),
-            )
-
-    Runs_from = models.CharField(
-            max_length=5,
-            choices=CHOICES,
-            help_text=_('Runs from or not'),
-            )
+    Kuks = models.BooleanField(default=False)
+    Quaas= models.BooleanField(default=False)
+    Moans =models.BooleanField(default=False)
+    Tail_flags =models.BooleanField(default=False)
+    Tail_twitches =models.BooleanField(default=False)
+    Approaches=models.BooleanField(default=False)
+    Indifferent =models.BooleanField(default=False)
+    Runs_from =models.BooleanField(default=False)
