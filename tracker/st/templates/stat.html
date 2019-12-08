@@ -2,21 +2,21 @@
 {% block content %}
 <table>
     <tr>
-        <th style="height: 100px; background-color: rgba(255,0,0,0.1);">Unique Squirrel ID</th>
-        <th style="height: 100px; background-color: rgba(255,0,0,0.1);">Age</th>
-        <th style="height: 100px; background-color: rgba(255,0,0,0.1);">Primary Fur Color</th>
-        <th style="height: 100px; background-color: rgba(255,0,0,0.1);">Latitude</th>
-        <th style="height: 100px; background-color: rgba(255,0,0,0.1);">Longitude</th>
-        <th style="height: 100px; background-color: rgba(255,0,0,0.1);">Location</th>
+        <th style="height: 150px; background-color: pink;">Unique Squirrel ID</th>
+        <th style="height: 150px; background-color: blue);">Age</th>
+        <th style="height: 150px; background-color: yellow;">Primary Fur Color</th>
+        <th style="height: 150px; background-color: red;">Latitude</th>
+        <th style="height: 150px; background-color:  green;">Longitude</th>
+        <th style="height: 150px; background-color: orange;">Location</th>
     </tr>
     {% for item in s %}
     <tr>
-        <td class="align-middle" style="width: 120px; background-color: rgba(0,0,255,.1)">{{ item.Unique_Squirrel_ID }}</td>
-        <td class="align-middle" style="width: 120px; background-color: rgba(0,0,255,.1)">{{ item.Age }}</td>
-        <td class="align-middle" style="width: 120px; background-color: rgba(0,0,255,.1)">{{ item.Primary_Fur_Color }}</td>
-        <td class="align-middle" style="width: 120px; background-color: rgba(0,0,255,.1)">{{ item.Latitude }}</td>
-        <td class="align-middle" style="width: 120px; background-color: rgba(0,0,255,.1)">{{ item.Longitude }}</td>
-        <td class="align-middle" style="width: 120px; background-color: rgba(0,0,255,.1)">{{ item.Other_Activities }}</td>
+     <td style="width: 120px; background-color: lightblue">{{ item.Unique_Squirrel_ID }}</td>
+        <td style="width: 120px; background-color: white">{{ item.Age }}</td>
+        <td style="width: 120px; background-color: lightblue">{{ item.Primary_Fur_Color }}</td>
+        <td style="width: 120px; background-color: white">{{ item.Latitude }}</td>
+        <td style="width: 120px; background-color: lightblue">{{ item.Longitude }}</td>
+        <td style="width: 120px; background-color: white">{{ item.Other_Activities }}</td>
     </tr>
     {% endfor %}
 </table>

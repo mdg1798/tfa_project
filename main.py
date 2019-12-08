@@ -1,3 +1,3 @@
-from tracker.wsgi import application
+from st.wsgi import application
 
 app=application
