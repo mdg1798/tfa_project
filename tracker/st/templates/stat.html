@@ -1,0 +1,23 @@
+{% extends 'home.html' %}
+{% block content %}
+<table>
+    <tr>
+        <th style="height: 100px; background-color: rgba(255,0,0,0.1);">Unique Squirrel ID</th>
+        <th style="height: 100px; background-color: rgba(255,0,0,0.1);">Age</th>
+        <th style="height: 100px; background-color: rgba(255,0,0,0.1);">Primary Fur Color</th>
+        <th style="height: 100px; background-color: rgba(255,0,0,0.1);">Latitude</th>
+        <th style="height: 100px; background-color: rgba(255,0,0,0.1);">Longitude</th>
+        <th style="height: 100px; background-color: rgba(255,0,0,0.1);">Location</th>
+    </tr>
+    {% for item in s %}
+    <tr>
+        <td class="align-middle" style="width: 120px; background-color: rgba(0,0,255,.1)">{{ item.Unique_Squirrel_ID }}</td>
+        <td class="align-middle" style="width: 120px; background-color: rgba(0,0,255,.1)">{{ item.Age }}</td>
+        <td class="align-middle" style="width: 120px; background-color: rgba(0,0,255,.1)">{{ item.Primary_Fur_Color }}</td>
+        <td class="align-middle" style="width: 120px; background-color: rgba(0,0,255,.1)">{{ item.Latitude }}</td>
+        <td class="align-middle" style="width: 120px; background-color: rgba(0,0,255,.1)">{{ item.Longitude }}</td>
+        <td class="align-middle" style="width: 120px; background-color: rgba(0,0,255,.1)">{{ item.Other_Activities }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

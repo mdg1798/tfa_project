@@ -1,4 +1,8 @@
-{% extends "base.html" %}
+{% extends "home.html" %}
 {% block content %}
-<h1> add page</h1>
-{% endblock content %}
+<form method='POST'>
+	{% csrf_token %}
+	{{ form.as_p}}
+	<input type='Submit' value='Saving Now...'/>
+</form>
+{% endblock %}

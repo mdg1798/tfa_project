@@ -1,6 +1,12 @@
-{% extends "base.html" %}
+{% extends 'home.html' %}
 {% block content %}
-
-<h1>Here will be sightings</h1>
-
-{% endblock content %}
+<h3>
+	List of all the squirrels, which can be edited:
+</h3>
+<ul class="list-group-flush">
+	<a href='/st/sightings/add'class='btn btn-primary'>Add</a>
+	{% for item in link_list %}
+	<li class="list-group-item" style="color:rgba(0,0,255,0.6);font-size:17px;padding-left:20px">{{ item }} :  <a href="/st/sightings/{{item}}" style="color:rgba(0,0,255,0.6);font-size:17px;padding-left:10px"class='btn btn-success'>Update </a></li>
+	{% endfor %}
+</ul>
+{% endblock %}

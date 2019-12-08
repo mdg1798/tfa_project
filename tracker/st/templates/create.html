@@ -1,0 +1,9 @@
+{% extends 'home.html' %}
+{% block content %}
+<form action='/sightings/{{ Squirrel.Unique_Squirrel_ID }}' method='POST'>
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type='Submit' value='Saving'/>
+
+</form>
+{% endblock %}
