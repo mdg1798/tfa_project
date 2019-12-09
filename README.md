@@ -43,7 +43,7 @@ Show general stats(e.g. Location, Age, Latitude, Longitude and Primary Fur Color
 ### Group Information
 Project Group 16, Section 2
 
-Uni = [mdg1798, nm3147]
+Uni = [mdg2197, nm3147]
 
 ### Link To App
 https://dynamic-nomad-255500.appspot.com/
