@@ -7,7 +7,15 @@
 Our Project is a web application to keep track of all the known squirrels within Central Park in New york. The application is based on 2018 Central Park Squirrel Census data and the user == YOU! can add, update, and view squirrel data. 
 
 ## Data Source
-https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw
+
+Users can import the 2018 Central Park Squirrel Census data by using the command:
+
+`python manage.py import_squirrel_data /path/to/file.csv`
+
+Also, users can export the data in csv format with this command:
+
+`python manage.py export_squirrel_data /path/to/file.csv`
+
 
 ## Functions
 
