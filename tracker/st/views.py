@@ -1,12 +1,13 @@
 from django.shortcuts import render,get_object_or_404,HttpResponse,redirect
 from .models import Squirrel
-#from django.http import HttpResponse
+from django.http import HttpResponse
 from .forms import SquirrelForm
-#from .forms import DeleteSquirrel
 import random
 from django.contrib import messages
 #from django.contrib.auth.decorators import login_required
 
+def index(request):
+    return HttpResponse("Welcome to our Squirrel Tracker App !")
 def general_state(request):
     s=Squirrel.objects.all()
     title='general state'
@@ -48,7 +49,7 @@ def add(request):
         form=SquirrelForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect(f'st/update')
+            return redirect(f'update')
     else:
         form = SquirrelForm()
     title='add new squirrel'
@@ -68,7 +69,7 @@ def update(request,unique_squirrel_id):
             to_update=form.save()
             to_update.save()
             messages.success(request,'Now you can update this squirrel')
-            return redirect(f'st/sightings')
+            return redirect(f'sightings')
     else:
         form = SquirrelForm(instance=to_update)
 
