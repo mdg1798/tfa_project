@@ -10,6 +10,8 @@ Our Project is a web application to keep track of all the known squirrels within
 https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw
 
 
+### Group Information
 Project Group 16, Section 2
+
 Uni = [mdg1798, nm3147]
-https://your-project-id.appspot.com/
+
